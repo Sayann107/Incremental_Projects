@@ -1,0 +1,2 @@
+Model,Dataset,Test Loss,Test Accuracy,Epochs Completed
+Fashion-MNIST CNN,Fashion-MNIST,0.2347,0.9177,13
