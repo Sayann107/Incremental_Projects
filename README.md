@@ -313,3 +313,65 @@ RetailMind AI demonstrates an incremental machine learning development workflow:
 Baseline → Compare → Tune → Validate → Engineer Features → Ensemble → Deep Learning → Computer Vision
 
 Each project increment is integrated into the same codebase so that new techniques can be evaluated against previous approaches rather than being treated as isolated exercises.
+Day 7: Transfer Learning and Object Detection
+Objective
+Upgrade the RetailMind AI computer-vision module using transfer learning and object detection.
+
+Transfer Learning
+The Day 6 CNN was trained from scratch.
+
+Day 7 uses MobileNetV2 pretrained on ImageNet as the image-feature extractor.
+
+The original MobileNetV2 layers are initially frozen, and a new classification head is trained for the fashion-product categories.
+
+The top layers are then fine-tuned using a lower learning rate.
+
+Transfer-Learning Pipeline
+Product image → Image augmentation → MobileNetV2 preprocessing → Pretrained MobileNetV2 → Global average pooling → Dropout → Softmax output → Product category
+
+Transfer-Learning Result
+Validation accuracy: ADD_DAY7_TRANSFER_ACCURACY
+
+Replace this placeholder using:
+
+models/day7_transfer_results.csv
+
+Object Detection
+A pretrained Ultralytics YOLO model is used to locate objects in catalog images.
+
+Unlike classification, object detection returns:
+
+Object class
+Confidence score
+Bounding-box coordinates
+Annotated image
+Retail Applications
+Object detection can support:
+
+Automated catalog quality checks
+Detection of multiple products in one image
+Product and shelf analytics
+Verifying whether product images contain expected objects
+Generated Files
+models/fashion_transfer_model.keras
+models/day7_class_names.txt
+models/day7_transfer_results.csv
+models/day7_transfer_history.csv
+models/day7_detection_results.csv
+outputs/day7_detection/
+Running Day 7
+Train transfer-learning classifier:
+
+python src/train_transfer_learning.py
+
+Predict one product category:
+
+python src/predict_transfer_learning.py "path/to/image.jpg"
+
+Run YOLO with the automatic sample:
+
+python src/detect_products.py
+
+Run YOLO on a local image:
+
+python src/detect_products.py "path/to/image.jpg"
