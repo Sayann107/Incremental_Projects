@@ -20,3 +20,13 @@ Thumbs.db
 
 # Environment/secrets
 .env
+__pycache__/
+*.pyc
+.venv/
+venv/
+.ipynb_checkpoints/
+
+data/fashion_products/
+data/detection_images/
+
+runs/
